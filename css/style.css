@@ -172,8 +172,8 @@ CONCEPT　復習してね
         to right,
         transparent 0%,
         transparent 20%,
-        var(--light-grey) 20%,
-        var(--light-grey) 100%
+        #ffffff 20%,
+        #63dbd0 100%
     );
 }
 /*追加したところ文字サイズ*/
