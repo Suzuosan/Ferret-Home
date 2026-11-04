@@ -167,3 +167,22 @@ const options = {
 
 const ferret = document.querySelector('#ferret');
 ferret.animate(keyframes, options);
+
+const chocolat = document.querySelector('#chocolat');
+
+const chocolatKeyframes = {
+    borderRadius: [
+        '20% 50% 50% 70%/50% 50% 70% 50%',
+        '50% 20% 50% 50%/40% 40% 60% 60%',
+        '50% 40% 20% 40%/40% 50% 50% 80%',
+        '50% 50% 50% 20%/40% 40% 60% 60%',
+    ],
+};
+
+const chocolatOptions = {
+    duration: 5000,
+    direction: 'alternate',
+    iterations: Infinity,
+};
+
+chocolat.animate(chocolatKeyframes, chocolatOptions);
