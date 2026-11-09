@@ -17,7 +17,7 @@ GENERAL STYLING
 ================================================ */
 body {
     color: var(--brown);
-    background: url('../images/bg-shadow.jpg') no-repeat right bottom / cover fixed;
+    background: url('../images/白い背景.jpg') no-repeat right bottom / cover fixed;
     text-align: center;
 }
 
@@ -32,7 +32,7 @@ img {
 }
 .title {
     font-family: var(--oswald-font);
-    font-size: max(8vw, 2rem);
+    font-size: max(4vw, 2rem);
     margin-bottom: 2rem;
 }
 .btn {
