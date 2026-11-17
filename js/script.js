@@ -168,14 +168,14 @@ const options = {
 const ferret = document.querySelector('#ferret');
 ferret.animate(keyframes, options);
 
-const chocolat = document.querySelector('#chocolat');
+const chocolat = document.querySelector('#chocolat'); //ショコラさん操作
 
 const chocolatKeyframes = {
     borderRadius: [
-        '20% 50% 50% 70%/50% 50% 70% 50%',
-        '50% 20% 50% 50%/40% 40% 60% 60%',
-        '50% 40% 20% 40%/40% 50% 50% 80%',
-        '50% 50% 50% 20%/40% 40% 60% 60%',
+        '20% 50% 50% 70% / 50% 50% 70% 50%',
+        '40% 30% 60% 60% / 60% 40% 50% 50%',
+        '60% 50% 30% 50% / 50% 60% 40% 70%',
+        '30% 60% 50% 40% / 40% 50% 70% 50%',
     ],
 };
 
@@ -186,3 +186,6 @@ const chocolatOptions = {
 };
 
 chocolat.animate(chocolatKeyframes, chocolatOptions);
+
+
+

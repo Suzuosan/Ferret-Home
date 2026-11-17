@@ -159,15 +159,16 @@ HERO
 
 #chocolat {
     position: absolute;
-    width: 18%;
-    height: auto;
-    object-fit: contain;
+    width: 18%;          /* 画像の大きさの調整（お好みで 18%〜22% くらいに） */
+    aspect-ratio: 1 / 1; /* ★縦と横を 1：1 にして「まんまる」にする！   ここの部分はもう少し調査が必要*/
+    object-fit: cover;   /* 写真を綺麗に切り抜く */
+    border-radius: 50%;  /* 正円にする */
     bottom: -30%;
     left: 15%;
 }
 .hero .title {
     position: absolute;
-    top: 45%;
+    top: 58%;      /*タイトルのHOME文字の位置*/
     left: 50%;
     translate: -50% -50%;
     z-index: 2;
@@ -185,6 +186,7 @@ HERO
     font-size: 1rem;
     line-height: 1.6;
 }
+
 .house {
     position: absolute;
     width: 320px;
@@ -253,13 +255,14 @@ CONCEPT　復習してね
 }
 /*アルビノ君、画像サイズの調整*/
 #ferret {
-    width: 280px;
-    height: auto;
+    width: 280px;               /* 丸の大きさはここで決める（大きければ200pxなどに変更） */
+    aspect-ratio: 1 / 1;        /* 縦と横を同じにして「まんまる」にする */
+    object-fit: cover;          /* 写真を綺麗に切り抜く */
+    border-radius: 50%;         /* 正円にする */
     display: block;
     margin: 2rem auto;
     transform: translateY(-80px);
 }
-
 
 /*
 GALLERY
@@ -269,25 +272,44 @@ GALLERY
     flex-direction: column-reverse;
 }
 .gallery-image {
-    width: min(100%, calc(38rem - 2rem));
+    width: min(100%, calc(28rem - 2rem));  /*メインの画像の大きさ*/
     margin: auto;
     position: relative;
+    border: 30px solid var(--brown); /* 外側の縁★額縁を外の箱に固定する！ */
+    box-shadow: 0 12px 28px rgba(64, 54, 50, 0.4);
+    box-sizing: border-box;
 }
+/* 内側の枠線（立体感を出すための少し明るい茶色） */
 .gallery-image::after {
     display: block;
     content: '';
-    width: calc(100% - 2rem);
-    height: calc(100% - 2.5rem);
+    width: 100%;        /* ★入れ物の内側いっぱいにピタッと合わせる */
+    height: 100%;       /* ★隙間ゼロ！ */
+    top: 0;
+    left: 0;
     z-index: 3;
-    border: 3px solid var(--white);
-    top: 1rem;
-    left: 1rem;
+    border: 4px solid #8c6d5e;
+    box-shadow: inset 6px 6px 10px rgba(0, 0, 0, 0.65), inset -3px -3px 6px rgba(255, 255, 255, 0.25);
     position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
 }
+/* 外側の太い額縁（濃い茶色） */
 .gallery-image img {
     aspect-ratio: 3/4;
     object-fit: cover;
     width: 100%;
+    display: block;
+    /* ★ここにあった border と box-shadow は消す！（写真と切り離すため） */
+}
+/* 額縁がふわっと光沢を帯びるアニメーション */
+@keyframes frameGlow {
+    0% {
+        border-color: var(--brown);
+    }
+    100% {
+        border-color: #6b5349;
+    }
 }
 .gallery-thumbnails {
     display: grid;
@@ -369,13 +391,6 @@ DESKTOP SIZE
     .gallery {
         flex-direction: row;
     }
-    .gallery-image {
-        width: 50vw;
-        margin: 0;
-    }
-    .gallery-image img {
-        height: 100vh;
-    }
     .gallery-content {
         width: 30vw;
     }
@@ -392,5 +407,39 @@ DESKTOP SIZE
     .shop {
         margin-top: 20rem;
         height: 50rem;
+    }
+}
+.subtitle {
+    background-color: #eef7fc;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(173, 216, 230, 0.45),
+                inset 0 0 20px rgba(255, 255, 255, 0.9);
+    border: 3px solid #ffffff;
+
+    width: max-content;
+    margin: 0;
+    padding: 28px 44px;
+    text-align: center;
+    color: var(--brown);
+    font-size: 1rem;
+    line-height: 1.8;
+    letter-spacing: 0.08em;
+
+    /* ★★★ ここをシンプルに書き換え！ ★★★ */
+    position: absolute;
+    top: -350px;    /* 屋根・煙突より上へ（まだ低ければ -400px に増やす） */
+    right: -180px;  /* 右外側（煙突の右側）へ押し出す */
+    z-index: 10;
+
+    animation: fuwafuwa 3.5s ease-in-out infinite;
+}
+
+/* ★アニメーションも元のシンプルな形に戻します */
+@keyframes fuwafuwa {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
     }
 }
